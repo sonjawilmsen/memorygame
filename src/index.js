@@ -6,6 +6,9 @@ import { render } from 'react-dom';
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 
+import injectTapEventPlugin from 'react-tap-event-plugin'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+
 // Get all the app's reducers in one big object.
 import * as reducers from './reducers';
 const reducer = combineReducers(reducers);
@@ -22,10 +25,14 @@ const store = createStore(reducer, enhancer);
 
 import App from './App';
 
+injectTapEventPlugin()
+
 // Wrap your entire app in React Redux's <Provider> component and pass in the
 // created store.
 render(
   <Provider store={store}>
-    <App />
+    <MuiThemeProvider>
+      <App />
+    </MuiThemeProvider>
   </Provider>,
 document.getElementById('root'));

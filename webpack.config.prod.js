@@ -15,7 +15,8 @@ module.exports = {
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': JSON.stringify('production')
+        'NODE_ENV': JSON.stringify('production'),
+        'FEATHERS_API_URL': JSON.stringify('https://memory-api.codaisseur.cloud')
       }
     }),
     new webpack.optimize.UglifyJsPlugin({

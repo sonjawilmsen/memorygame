@@ -15,6 +15,11 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'FEATHERS_API_URL': JSON.stringify('https://memory-api.codaisseur.cloud')
+      }
+    }),
     new webpack.NoErrorsPlugin()
   ],
   module: {
